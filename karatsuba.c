@@ -3,6 +3,8 @@
 #include <string.h>
 #include <math.h>
 
+const int base = 5;
+
 //multiplicar por 10 e sua base
 char* adiciona_zeros(char* num, int zeros) {
     int len = strlen(num);
@@ -20,6 +22,25 @@ char* adiciona_zeros(char* num, int zeros) {
 }
 
 
+char* karatsuba(char* num1, char* num2){
+    if(strlen(num1) < base || strlen(num2) < base){
+        //conversao de vetor de char em long long int para poder manipular e multipicar os dados
+        long long num1 = atoll(num1);
+        long long num2 = atoll(num2);
+
+        //multiplicacao de fato
+        long resultado = num1 * num2;
+
+        //alocacao de string de char para poder guardar o resultado da multiplicacao
+        char* resultadoString = (char*)malloc(sizeof(char) * 10);
+
+        //guardando dentro da string de char, o resultado da multipicacao
+        sprintf(resultadoString, "%lld", resultado);
+        
+        return resultadoString;
+    }
+}
+
 
 int main(){
     int dig, c;
@@ -35,7 +56,14 @@ int main(){
     while ((c = getchar()) != '\n' && c != EOF);
     fgets(numero2, dig + 1, stdin);
 
-    printf("%s", karatsuba(numero1, numero2));
+
+    //conversao de string para long long int
+
+    //long long num1 = atoll(numero1);
+    //long long num2 = atoll(numero2);
+    //printf("%lld", num1 + num2);
+
+
     
 
     // printf("%s ---- %s \n", numero1, numero2);
