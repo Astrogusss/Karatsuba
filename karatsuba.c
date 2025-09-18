@@ -4,6 +4,20 @@
 #include <math.h>
 
 //multiplicar por 10 e sua base
+char* adiciona_zeros(char* num, int zeros) {
+    int len = strlen(num);
+    char* resultado = (char*)malloc(sizeof(char) * (len + zeros + 1));
+    if (resultado == NULL) {
+        return NULL;
+    }
+
+    strcpy(resultado, num);
+    for (int i = 0; i < zeros; i++) {
+        resultado[len + i] = '0';
+    }
+    resultado[len + zeros] = '\0'; 
+    return resultado;
+}
 
 
 
