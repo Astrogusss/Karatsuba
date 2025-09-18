@@ -3,11 +3,11 @@
 #include <string.h>
 #include <math.h>
 
+//multiplicar por 10 e sua base
 char* adiciona_zeros(char* num, int zeros) {
     int len = strlen(num);
     char* resultado = (char*)malloc(sizeof(char) * (len + zeros + 1));
     if (resultado == NULL) {
-        perror("Erro de alocacao de memoria");
         return NULL;
     }
 
@@ -28,10 +28,10 @@ void reverter_string(char* str) {
     }
 }
 
-char* sub_string(char* str, int inicio, int tamanho) {
+//particionar string
+char* particao(char* str, int inicio, int tamanho) {
     char* sub = (char*)malloc(sizeof(char) * (tamanho + 1));
     if (sub == NULL) {
-        perror("Erro de alocacao de memoria");
         return NULL;
     }
 
